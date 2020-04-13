@@ -6,6 +6,6 @@ class FetchMovieChannel < ApplicationCable::Channel
   end
 
   def fetch_movie(data)
-    FetchMovieJob.perform_later(id: params[:id], title: data["title"]) if data["title"]
+    FetchMovieJob.perform_later(id: params[:id], title: data["title"]) if data["title"].present?
   end
 end

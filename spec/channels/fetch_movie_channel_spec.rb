@@ -47,5 +47,13 @@ RSpec.describe FetchMovieChannel, type: :channel do
         expect { fetch_movie }.not_to have_enqueued_job(FetchMovieJob)
       end
     end
+
+    context "with empty title" do
+      let(:title) { "" }
+
+      it "does not schedule fetch movie job" do
+        expect { fetch_movie }.not_to have_enqueued_job(FetchMovieJob)
+      end
+    end
   end
 end
