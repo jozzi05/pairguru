@@ -21,5 +21,20 @@ RSpec.describe FetchMovieJob, type: :job do
           )
       end
     end
+
+    context "with title not present in external api", vcr: { cassette_name: "pairguru/fetch_movie/shrek" } do
+      let(:title) { "Shrek" }
+
+      it "does not broadcast message to the channel" do
+        expect { perform }.not_to broadcast_to("fetch_movie_channel_#{id}")
+      end
+
+      it "logs error from api" do
+        expect(Rails.logger).to receive(:info)
+          .with("status:[404] - body[{\"message\":\"Couldn't find Movie\"}]")
+
+        perform
+      end
+    end
   end
 end
