@@ -48,7 +48,6 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        ap returned_errors
         expect(returned_errors).to match_array [
           :external_api_call_error,
           "status:[404] - body[]"
