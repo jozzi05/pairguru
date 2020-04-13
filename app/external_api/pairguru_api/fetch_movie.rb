@@ -30,5 +30,9 @@ module PairguruApi
         poster: format(POSTER_URL, poster: poster)
       }
     end
+
+    private_constant :MOVIE_URL, :POSTER_URL
   end
+  
+  private_constant :FetchMovie
 end
