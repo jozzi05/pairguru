@@ -4,7 +4,6 @@ class MoviesListPage < BasePage
   include Rails.application.routes.url_helpers
 
   def initialize(page)
-    @page = page
     @movies_table = page.find("table")
   end
 
@@ -20,7 +19,7 @@ class MoviesListPage < BasePage
 
   private
 
-  attr_reader :page, :movies_table
+  attr_reader :movies_table
 
   def movie_row(title)
     movies_table
