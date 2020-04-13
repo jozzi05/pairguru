@@ -38,5 +38,24 @@ RSpec.describe PairguruApi do
         )
       end
     end
+
+    context "with title containing spaces and present in external api",
+            vcr: { cassette_name: "pairguru/fetch_movie/kill_bill_2" } do
+      let(:movie_title) { "Kill Bill 2" }
+
+      it "returns success" do
+        expect(fetch_movie).to be_success
+      end
+
+      it "returns parsed movie attributes" do
+        expect(fetch_movie.success).to match(
+          title: movie_title,
+          rating: 8.0,
+          plot: "The Bride continues her quest of vengeance against her former boss and lover Bill, the reclusive "\
+                "bouncer Budd and the treacherous, one-eyed Elle.",
+          poster: "https://pairguru-api.herokuapp.com/kill_bill_2.jpg"
+        )
+      end
+    end
   end
 end

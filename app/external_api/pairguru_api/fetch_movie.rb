@@ -9,13 +9,21 @@ module PairguruApi
     POSTER_URL = "#{DOMAIN}%<poster>s".freeze
 
     def call(title)
-      response = yield ApiClient.get(format(MOVIE_URL, movie_title: title))
+      response = yield ApiClient.get(url(title))
       attributes = response.dig(:data, :attributes)
       serialized_movie = serialize_movie_attributes(**attributes)
       Success(serialized_movie)
     end
 
     private
+
+    def url(title)
+      format(MOVIE_URL, movie_title: encode(title))
+    end
+
+    def encode(string)
+      ERB::Util.url_encode(string)
+    end
 
     def serialize_movie_attributes(title:, plot:, poster:, rating:, **)
       {
