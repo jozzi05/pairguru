@@ -32,10 +32,14 @@ group :development, :test do
   gem "faker"
   gem "listen"
   gem "rspec-rails"
-  gem "rubocop"
   gem "simplecov"
 end
 
 group :test do
   gem "shoulda-matchers"
+end
+
+group :lint do
+  gem "rubocop"
+  gem "rubocop-rails"
 end
