@@ -1,0 +1,37 @@
+name: Linter
+on: [pull_request]
+
+jobs:
+  run_linter:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        ruby: [ 2.6 ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - name: Setup cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-
+
+      - name: Install dependencies
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3 --without default development test
+
+      - name: Run linter
+        run: |
+          bundle exec rubocop
