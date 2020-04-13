@@ -23,4 +23,19 @@ RSpec.describe FetchMovieChannel, type: :channel do
       end
     end
   end
+
+  describe "#fetch_movie" do
+    subject(:fetch_movie) { perform(:fetch_movie, title: title) }
+
+    let(:title) { "Pulp Fiction" }
+    let(:id) { "subscription_id" }
+
+    before { subscribe(id: id) }
+
+    it "schedules fetch movie job" do
+      expect { fetch_movie }
+        .to have_enqueued_job(FetchMovieJob)
+        .with(id: id, title: title)
+    end
+  end
 end
