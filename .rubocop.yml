@@ -485,6 +485,7 @@ Metrics/AbcSize:
   Enabled: true
   Exclude:
     - "spec/**/*"
+    - "app/validators/title_brackets_validator.rb"
   Max: 15
 Metrics/BlockLength:
   CountComments: false
