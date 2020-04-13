@@ -45,8 +45,8 @@ class MovieRowPage < BasePage
 
   def has_rating(rating)
     expect(row).to(
-      have_css("p[data-movie='rating']", exact_text: "#{rating}/10"),
-      text_not_found_error("#{rating}/10", row.all("p"))
+      have_css("div[data-movie='rating']", exact_text: "#{rating}/10"),
+      text_not_found_error("#{rating}/10", row.all("div"))
     )
 
     self
