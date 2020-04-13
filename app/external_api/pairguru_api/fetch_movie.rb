@@ -1,11 +1,6 @@
-require "dry/monads/do"
-require "dry/monads/result"
-require "dry/matcher/result_matcher"
-
 module PairguruApi
   class FetchMovie
-    include Dry::Monads[:result, :do]
-    include Dry::Matcher.for(:call, with:Dry::Matcher::ResultMatcher)
+    include Dry::BaseAction
 
     MOVIE_URL = "#{DOMAIN}/api/v1/movies/%<movie_title>s".freeze
     POSTER_URL = "#{DOMAIN}%<poster>s".freeze
