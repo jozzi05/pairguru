@@ -33,7 +33,7 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        expect(returned_error).to match_array [
+        expect(returned_error).to eq [
           :external_api_call_error,
           "Faraday::ConnectionFailed - execution expired"
         ]
@@ -48,7 +48,7 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        expect(returned_error).to match_array [
+        expect(returned_error).to eq [
           :external_api_call_error,
           "status:[404] - body[]"
         ]
