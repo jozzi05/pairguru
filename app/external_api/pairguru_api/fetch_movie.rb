@@ -33,6 +33,6 @@ module PairguruApi
 
     private_constant :MOVIE_URL, :POSTER_URL
   end
-  
+
   private_constant :FetchMovie
 end
