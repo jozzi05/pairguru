@@ -48,6 +48,9 @@ group :test do
   gem "vcr"
   gem "webmock"
 
+  # sockets
+  gem "action-cable-testing"
+
   gem "shoulda-matchers"
 end
 
