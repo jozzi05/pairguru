@@ -4,7 +4,7 @@ RSpec.describe ApiClient do
   describe "#get" do
     subject(:get_result) { described_class.get(url) }
 
-    let(:returned_errors) { get_result.failure }
+    let(:returned_error) { get_result.failure }
 
     context "with incorrect url" do
       let(:url) { "incorrect url" }
@@ -14,7 +14,7 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        expect(returned_errors).to eq(:incorrect_url)
+        expect(returned_error).to eq(:incorrect_url)
       end
     end
 
@@ -33,7 +33,7 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        expect(returned_errors).to match_array [
+        expect(returned_error).to match_array [
           :external_api_call_error,
           "Faraday::ConnectionFailed - execution expired"
         ]
@@ -48,7 +48,7 @@ RSpec.describe ApiClient do
       end
 
       it "returns failure code with message" do
-        expect(returned_errors).to match_array [
+        expect(returned_error).to match_array [
           :external_api_call_error,
           "status:[404] - body[]"
         ]

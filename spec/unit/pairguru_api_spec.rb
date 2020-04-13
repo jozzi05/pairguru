@@ -4,7 +4,7 @@ RSpec.describe PairguruApi do
   describe "#fetch_movie" do
     subject(:fetch_movie) { described_class.fetch_movie(movie_title) }
 
-    let(:returned_errors) { fetch_movie.failure }
+    let(:returned_error) { fetch_movie.failure }
 
     context "with title missing in external api", vcr: { cassette_name: "pairguru/fetch_movie/shrek" } do
       let(:movie_title) { "Shrek" }
@@ -14,7 +14,7 @@ RSpec.describe PairguruApi do
       end
 
       it "returns failure code with message" do
-        expect(returned_errors).to match_array [
+        expect(returned_error).to match_array [
           :external_api_call_error,
           "status:[404] - body[{\"message\":\"Couldn't find Movie\"}]"
         ]
