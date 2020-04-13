@@ -12,13 +12,13 @@ RSpec.describe FetchMovieChannel, type: :channel do
     context "with present id" do
       let(:id) { "super_random_id" }
 
+      before { subscribe(id: id) }
+
       it "confirms connection" do
-        subscribe(id: id)
         expect(subscription).to be_confirmed
       end
 
       it "creates correct stream" do
-        subscribe(id: id)
         assert_has_stream "fetch_movie_channel_#{id}"
       end
     end
