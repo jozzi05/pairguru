@@ -20,5 +20,23 @@ RSpec.describe PairguruApi do
         ]
       end
     end
+
+    context "with title present in external api", vcr: { cassette_name: "pairguru/fetch_movie/django" } do
+      let(:movie_title) { "Django" }
+
+      it "returns success" do
+        expect(fetch_movie).to be_success
+      end
+
+      it "returns parsed movie attributes" do
+        expect(fetch_movie.success).to match(
+          title: movie_title,
+          rating: 8.4,
+          plot: "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal "\
+                "Mississippi plantation owner.",
+          poster: "https://pairguru-api.herokuapp.com/django.jpg"
+        )
+      end
+    end
   end
 end

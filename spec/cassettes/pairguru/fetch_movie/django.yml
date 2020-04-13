@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pairguru-api.herokuapp.com/api/v1/movies/Django
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 13 Apr 2020 16:36:11 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"514aeeddfce52bfb49dccf3cde95e86f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0d0657ea-db54-4bbc-9e90-9ae67184f33b
+      X-Runtime:
+      - '0.028420'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"movie","attributes":{"title":"Django","plot":"With
+        the help of a German bounty hunter, a freed slave sets out to rescue his wife
+        from a brutal Mississippi plantation owner.","rating":8.4,"poster":"/django.jpg"}}}'
+    http_version: null
+  recorded_at: Mon, 13 Apr 2020 16:36:12 GMT
+recorded_with: VCR 5.1.0
