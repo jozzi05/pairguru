@@ -12,6 +12,7 @@ class TitleBracketsValidator < ActiveModel::Validator
 
       if PAIRS.key?(char)
         prev_char, prev_index = queue.pop
+
         return record.errors[:title] << "contains unclosed brackets" if prev_char != PAIRS[char]
         return record.errors[:title] << "has empty brackets" if prev_index + 1 == index
       end
