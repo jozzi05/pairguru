@@ -17,6 +17,7 @@ gem "faraday"
 gem "oj"
 
 # dry
+gem "dry-container"
 gem "dry-matcher"
 gem "dry-monads"
 

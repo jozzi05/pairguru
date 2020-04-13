@@ -30,7 +30,7 @@ RSpec.describe FetchMovieJob, type: :job do
       end
 
       it "logs error from api" do
-        expect(Rails.logger).to receive(:info)
+        expect(Container[:logger]).to receive(:info)
           .with("status:[404] - body[{\"message\":\"Couldn't find Movie\"}]")
 
         perform
