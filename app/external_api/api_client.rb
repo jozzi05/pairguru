@@ -3,7 +3,7 @@ module ApiClient
     include Dry::Monads[:result]
 
     def get(_url)
-      Failure()
+      Failure(:incorrect_url)
     end
   end
 end
