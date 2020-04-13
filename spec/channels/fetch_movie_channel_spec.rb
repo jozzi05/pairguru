@@ -1,18 +1,21 @@
 require "rails_helper"
 
 RSpec.describe FetchMovieChannel, type: :channel do
+  let(:id) { "super_random_id" }
+
+  before { subscribe(id: id) }
+
   describe "#subscription" do
     context "with missing id" do
+      let(:id) { nil }
+
       it "rejects connection" do
-        subscribe
         expect(subscription).to be_rejected
       end
     end
 
     context "with present id" do
       let(:id) { "super_random_id" }
-
-      before { subscribe(id: id) }
 
       it "confirms connection" do
         expect(subscription).to be_confirmed
@@ -28,9 +31,6 @@ RSpec.describe FetchMovieChannel, type: :channel do
     subject(:fetch_movie) { perform(:fetch_movie, title: title) }
 
     let(:title) { "Pulp Fiction" }
-    let(:id) { "subscription_id" }
-
-    before { subscribe(id: id) }
 
     it "schedules fetch movie job" do
       expect { fetch_movie }
