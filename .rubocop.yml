@@ -1051,3 +1051,5 @@ Performance/ChainArrayAllocation:
   Enabled: true
 RSpec/ExampleLength:
   Enabled: false
+RSpec/MessageSpies:
+  EnforcedStyle: receive
