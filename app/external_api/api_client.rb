@@ -3,7 +3,8 @@ module ApiClient
     include Dry::Monads[:result]
 
     def get(url)
-      Faraday.get(URI.parse(url))
+      response = Faraday.get(URI.parse(url))
+      api_call_error("status:[#{response.status}] - body[#{response.body}]")
     rescue URI::InvalidURIError
       Failure(:incorrect_url)
     rescue Faraday::ConnectionFailed => e

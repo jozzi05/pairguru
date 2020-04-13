@@ -39,5 +39,21 @@ RSpec.describe ApiClient do
         ]
       end
     end
+
+    context "with api response error", vcr: { cassette_name: "api_client/api_error" } do
+      let(:url) { "https://pairguru-api.herokuapp.com/api/v1/moviess/Godfather" }
+
+      it "returns failure" do
+        expect(get_result).to be_failure
+      end
+
+      it "returns failure code with message" do
+        ap returned_errors
+        expect(returned_errors).to match_array [
+          :external_api_call_error,
+          "status:[404] - body[]"
+        ]
+      end
+    end
   end
 end
