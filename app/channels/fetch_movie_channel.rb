@@ -1,5 +1,5 @@
 class FetchMovieChannel < ApplicationCable::Channel
   def subscribed
-    reject
+    reject unless params[:id]
   end
 end

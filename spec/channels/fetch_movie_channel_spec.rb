@@ -8,5 +8,12 @@ RSpec.describe FetchMovieChannel, type: :channel do
         expect(subscription).to be_rejected
       end
     end
+
+    context "with present id" do
+      it "confirms connection" do
+        subscribe(id: "super_random_id")
+        expect(subscription).to be_confirmed
+      end
+    end
   end
 end
