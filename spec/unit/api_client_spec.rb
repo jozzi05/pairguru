@@ -54,5 +54,29 @@ RSpec.describe ApiClient do
         ]
       end
     end
+
+    context "with http 200 status code response", vcr: { cassette_name: "api_client/HTTP_200" } do
+      let(:url) { "https://pairguru-api.herokuapp.com/api/v1/movies/Godfather" }
+
+      it "returns success" do
+        expect(get_result).to be_success
+      end
+
+      it "returns parsed json object" do
+        expect(get_result.success).to match(
+          data: {
+            id: "6",
+            type: "movie",
+            attributes: {
+              title: "Godfather",
+              plot: "The aging patriarch of an organized crime dynasty transfers control "\
+                    "of his clandestine empire to his reluctant son.",
+              rating: 9.2,
+              poster: "/godfather.jpg"
+            }
+          }
+        )
+      end
+    end
   end
 end

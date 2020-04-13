@@ -14,6 +14,7 @@ gem "uglifier"
 
 # http calls
 gem "faraday"
+gem "oj"
 
 # dry
 gem "dry-monads"

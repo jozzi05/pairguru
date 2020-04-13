@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pairguru-api.herokuapp.com/api/v1/movies/Godfather
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 13 Apr 2020 15:13:01 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"0b3e1497ae4666c381fb57fe61558b60"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 30fc99b4-306a-499b-a92a-9252375f9e43
+      X-Runtime:
+      - '0.089208'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"6","type":"movie","attributes":{"title":"Godfather","plot":"The
+        aging patriarch of an organized crime dynasty transfers control of his clandestine
+        empire to his reluctant son.","rating":9.2,"poster":"/godfather.jpg"}}}'
+    http_version: null
+  recorded_at: Mon, 13 Apr 2020 15:13:01 GMT
+recorded_with: VCR 5.1.0
