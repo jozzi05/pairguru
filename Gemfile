@@ -12,6 +12,9 @@ gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
 
+# http calls
+gem "faraday"
+
 # dry
 gem "dry-monads"
 
@@ -39,6 +42,10 @@ group :development, :test do
 end
 
 group :test do
+  # http calls
+  gem "vcr"
+  gem "webmock"
+
   gem "shoulda-matchers"
 end
 
