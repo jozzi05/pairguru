@@ -17,6 +17,7 @@ gem "faraday"
 gem "oj"
 
 # dry
+gem "dry-matcher"
 gem "dry-monads"
 
 # Reduces boot times through caching; required in config/boot.rb
