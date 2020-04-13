@@ -483,6 +483,8 @@ Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
   Enabled: true
+  Exclude:
+    - "spec/**/*"
   Max: 15
 Metrics/BlockLength:
   CountComments: false
