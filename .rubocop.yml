@@ -506,8 +506,6 @@ Layout/LineLength:
   Enabled: true
   Max: 125
   AllowURI: true
-  Exclude:
-    - "config/initializers/devise.rb"
   URISchemes:
     - http
     - https
