@@ -1,6 +1,7 @@
 require:
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   Exclude:
@@ -1045,4 +1046,6 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
+  Enabled: true
+Performance/ChainArrayAllocation:
   Enabled: true
