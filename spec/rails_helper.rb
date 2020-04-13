@@ -4,7 +4,6 @@ require "spec_helper"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "pry"
-require "capybara/rails"
 require "shoulda/matchers"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
@@ -14,7 +13,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryBot::Syntax::Methods
-  config.include Capybara::DSL
+
   config.use_transactional_fixtures = true
 end
 
