@@ -30,12 +30,22 @@ RSpec.describe FetchMovieChannel, type: :channel do
   describe "#fetch_movie" do
     subject(:fetch_movie) { perform(:fetch_movie, title: title) }
 
-    let(:title) { "Pulp Fiction" }
+    context "with present title" do
+      let(:title) { "Pulp Fiction" }
 
-    it "schedules fetch movie job" do
-      expect { fetch_movie }
-        .to have_enqueued_job(FetchMovieJob)
-        .with(id: id, title: title)
+      it "schedules fetch movie job" do
+        expect { fetch_movie }
+          .to have_enqueued_job(FetchMovieJob)
+          .with(id: id, title: title)
+      end
+    end
+
+    context "with missing title" do
+      let(:title) { nil }
+
+      it "does not schedule fetch movie job" do
+        expect { fetch_movie }.not_to have_enqueued_job(FetchMovieJob)
+      end
     end
   end
 end
