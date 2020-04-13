@@ -19,12 +19,11 @@ RSpec.describe "Movies list page", type: :system do
       Container.stub(:fetch_movie, stubbed_success { movie_api_response }, &test)
     end
 
-    before { visit "/movies" }
-
     it "displays movie row in table", :aggregate_failures, :with_js, :with_job do
       perform_enqueued_jobs do
-        movies_page
-          .has_row_with_movie(movie, movie_api_response)
+        visit "/movies"
+
+        movies_page.has_row_with_movie(movie, movie_api_response)
       end
     end
   end

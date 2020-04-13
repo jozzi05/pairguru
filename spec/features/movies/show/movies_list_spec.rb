@@ -19,10 +19,10 @@ RSpec.describe "Movies details page", type: :system do
       Container.stub(:fetch_movie, stubbed_success { movie_api_response }, &test)
     end
 
-    before { visit "/movies/#{movie.id}" }
-
     it "displays movie details", :aggregate_failures, :with_js, :with_job do
       perform_enqueued_jobs do
+        visit "/movies/#{movie.id}"
+
         movie_page
           .has_title(movie.title)
           .has_description(movie.description)
