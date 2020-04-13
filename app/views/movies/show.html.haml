@@ -1,5 +1,16 @@
-%h1= @movie.title
-.jumbotron
-  = @movie.description
-- if user_signed_in?
-  %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+.row{ "data-movie-title" => @movie.title }
+  .col-md-4
+    =image_tag "poster_place_holder.jpeg", "data-movie" => "poster", class: 'img-rounded movie__poster--big'
+
+  .col-md-8
+    .row.vertical-align
+      %h1.col-xs-6= @movie.title
+      .col-xs-6.text-right{ "data-movie" => "rating"}
+
+    .jumbotron
+      = @movie.description
+
+    .jumbotron.movie__plot{ "data-movie" => "plot"}
+
+    - if user_signed_in?
+      %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'

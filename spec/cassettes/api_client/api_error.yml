@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pairguru-api.herokuapp.com/api/v1/moviess/Godfather
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 13 Apr 2020 14:58:50 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Request-Id:
+      - 2cdbee31-eda6-45fa-81c7-b58bf563df20
+      X-Runtime:
+      - '0.001829'
+      Content-Length:
+      - '0'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 13 Apr 2020 14:58:50 GMT
+recorded_with: VCR 5.1.0

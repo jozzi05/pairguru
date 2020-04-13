@@ -483,6 +483,8 @@ Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
   Enabled: true
+  Exclude:
+    - "spec/**/*"
   Max: 15
 Metrics/BlockLength:
   CountComments: false
@@ -1049,3 +1051,7 @@ Style/HashTransformValues:
   Enabled: true
 Performance/ChainArrayAllocation:
   Enabled: true
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MessageSpies:
+  EnforcedStyle: receive

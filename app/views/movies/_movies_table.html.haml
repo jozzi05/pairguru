@@ -1,15 +1,27 @@
 %table.table.table-striped
   %tbody
     - movies.each_with_index do |movie, i|
-      %tr
+      %tr{ 'data-movie-title' => movie.title }
         %td= i + 1
+
         %td
-          %img.img-rounded{ src: movie.cover }
+          =image_tag "poster_place_holder_small.jpeg",
+                     "data-movie" => "poster",
+                     class: 'img-rounded movie__poster--small'
+
         %td
-          %h4
-            = link_to movie.title, movie_path(movie)
+          .row.vertical-align
+
+            %h4.col-xs-6
+              = link_to movie.title, movie_path(movie)
+
+            .col-xs-6.text-right{ "data-movie" => "rating" }
+
           %p
             %strong
               = link_to movie.genre.name, movies_genre_path(movie.genre)
             = ' (' + movie.released_at.to_s + ')'
+
           %p= movie.description
+
+          %p.movie__plot{ "data-movie" => "plot" }

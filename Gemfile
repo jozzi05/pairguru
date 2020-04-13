@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 gem "rails", "5.2"
 
+gem "puma"
+gem "redis"
+
 gem "annotate"
 gem "bootstrap-sass"
 gem "devise"
@@ -11,6 +14,18 @@ gem "jquery-rails"
 gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
+
+# http calls
+gem "faraday"
+gem "oj"
+
+# dry
+gem "dry-container"
+gem "dry-matcher"
+gem "dry-monads"
+
+# jobs
+gem "sidekiq"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -27,7 +42,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "capybara"
+  gem "awesome_print"
   gem "factory_bot_rails"
   gem "faker"
   gem "listen"
@@ -36,7 +51,19 @@ group :development, :test do
 end
 
 group :test do
+  # http calls
+  gem "vcr"
+  gem "webmock"
+
+  # sockets
+  gem "action-cable-testing"
+
   gem "shoulda-matchers"
+
+  # system spec
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 group :lint do

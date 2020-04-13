@@ -1,0 +1,26 @@
+.movie {
+  &__poster {
+    &--small {
+      max-height: 150px;
+      max-width: 100px;
+    }
+
+    &--big {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__plot {
+    opacity: 0;
+    transform: translateY(-30%);
+    transition: opacity .4s ease-in, transform .4s ease-in;
+    visibility: hidden;
+
+    &--filled-in {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+}
