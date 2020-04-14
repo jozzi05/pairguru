@@ -4,6 +4,10 @@ module RequestsModule
 
     Oj.load(response.body, symbol_keys: true)
   end
+
+  def parsed_data
+    parsed_json[:data]
+  end
 end
 
 RSpec.configure do |config|
