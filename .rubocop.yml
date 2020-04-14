@@ -1056,3 +1056,7 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/MessageSpies:
   EnforcedStyle: receive
+RSpec/DescribeClass:
+  Enabled: false
+Rails/HttpStatus:
+  EnforcedStyle: numeric
