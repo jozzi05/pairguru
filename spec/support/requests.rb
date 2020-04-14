@@ -8,6 +8,10 @@ module RequestsModule
   def parsed_data
     parsed_json[:data]
   end
+
+  def parsed_errors
+    parsed_json[:errors]
+  end
 end
 
 RSpec.configure do |config|

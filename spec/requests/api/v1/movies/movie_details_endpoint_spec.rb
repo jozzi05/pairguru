@@ -11,5 +11,11 @@ RSpec.describe "GET /api/v1/movies/:id - movie details endpoint", type: :request
     it "returns status code 404" do
       expect(response).to have_http_status(404)
     end
+
+    it "returns corresponding errors" do
+      expect(parsed_errors).to contain_exactly(
+        an_object_matching(code: "resource_not_found", key: "id")
+      )
+    end
   end
 end
