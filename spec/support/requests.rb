@@ -17,4 +17,3 @@ end
 RSpec.configure do |config|
   config.include RequestsModule, type: :request
 end
-
