@@ -11,8 +11,10 @@ module Container
     MoviesRepository.new
   end
 
-  register :movie_serializer do
-    ->(movie) { MovieSerializer.new(movie).serialized_json }
+  namespace("api.v1") do
+    register "movie_serializer" do
+      ->(movie) { Api::V1::MovieSerializer.new(movie).serialized_json }
+    end
   end
 end
 
