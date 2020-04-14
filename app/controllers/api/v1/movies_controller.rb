@@ -15,7 +15,8 @@ module Api
       def show
         fetch_movie.call(permitted_params) do |on_fetch_movie|
           on_fetch_movie.success(&on_fetch_movie_success)
-          on_fetch_movie.failure(&on_fetch_movie_failure)
+          on_fetch_movie.failure(:validation_error, &on_fetch_movie_failure)
+          on_fetch_movie.failure(:movie_not_found, &on_fetch_movie_failure)
         end
       end
 
