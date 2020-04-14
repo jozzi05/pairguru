@@ -6,6 +6,10 @@ module Api
       def index
         render json: movie_serializer.call(movies_repository.fetch_all)
       end
+
+      def show
+        render status: 404
+      end
     end
   end
 end
