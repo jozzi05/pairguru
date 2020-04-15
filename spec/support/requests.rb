@@ -12,6 +12,10 @@ module RequestsModule
   def parsed_errors
     parsed_json[:errors]
   end
+
+  def parsed_included
+    parsed_json[:included]
+  end
 end
 
 RSpec.configure do |config|

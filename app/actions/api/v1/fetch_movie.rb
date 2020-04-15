@@ -18,9 +18,9 @@ module Api
         fetch_movie_contract.validate(input)
       end
 
-      def fetch_movie(id:)
+      def fetch_movie(id:, include: nil)
         movie = movies_repository.find(id: id)
-        movie ? Success(movie) : Failure(:movie_not_found)
+        movie ? Success(movie: movie, include: include) : Failure(:movie_not_found)
       end
     end
   end

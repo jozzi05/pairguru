@@ -1,6 +1,6 @@
 class MoviesRepository
-  def fetch_all
-    Movie.all
+  def fetch_all_with(include)
+    Movie.includes(include).all
   end
 
   def find(id:)

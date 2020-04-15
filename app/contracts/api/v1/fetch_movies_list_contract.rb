@@ -1,8 +1,7 @@
 module Api
   module V1
-    class FetchMovieContract < BaseContract
+    class FetchMoviesListContract < BaseContract
       params do
-        required(:id).value(:string)
         optional(:include).value(:string, included_in?: ["genre"])
       end
     end
