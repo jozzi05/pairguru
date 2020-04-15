@@ -490,7 +490,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   CountComments: false
   Max: 25
-  ExcludedMethods: ['describe', 'context', 'feature', 'resource', 'route_param', 'included']
+  ExcludedMethods: ['describe', 'context', 'feature', 'resource', 'route_param', 'included', 'shared_context']
 Metrics/BlockNesting:
   Description: Avoid excessive block nesting
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#three-is-the-number-thou-shalt-count
@@ -1056,3 +1056,9 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/MessageSpies:
   EnforcedStyle: receive
+RSpec/DescribeClass:
+  Enabled: false
+Rails/HttpStatus:
+  EnforcedStyle: numeric
+RSpec/SharedExamples:
+  Enabled: false

@@ -19,10 +19,14 @@ gem "uglifier"
 gem "faraday"
 gem "oj"
 
+gem "fast_jsonapi", "~> 1.6.0", git: "https://github.com/fast-jsonapi/fast_jsonapi"
+
 # dry
+gem "dry-auto_inject"
 gem "dry-container"
 gem "dry-matcher"
 gem "dry-monads"
+gem "dry-validation"
 
 # jobs
 gem "sidekiq"
